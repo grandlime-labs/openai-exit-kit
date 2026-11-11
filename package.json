@@ -1,10 +1,9 @@
 {
   "name": "openai-exit-kit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Move OpenAI Evals and stored prompt objects to promptfoo and plain TypeScript/Python before the 2026-11-30 shutdown. Runs locally; nothing is uploaded.",
   "type": "module",
   "license": "MIT",
-  "private": true,
   "author": "openai-exit-kit contributors",
   "repository": {
     "type": "git",
@@ -55,5 +54,8 @@
     "dist/cli",
     "README.md",
     "LICENSE"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

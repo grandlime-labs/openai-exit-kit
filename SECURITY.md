@@ -2,7 +2,7 @@
 
 ## Supported versions
 
-The `main` branch and the latest released version (currently 0.1.0) receive security fixes.
+The `main` branch and the latest released version (currently 0.1.1) receive security fixes.
 
 ## What this project is careful about
 

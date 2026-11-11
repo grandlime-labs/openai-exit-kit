@@ -1,8 +1,8 @@
 # Approvals required before anything goes public
 
-Nothing in this package has been published, pushed, deployed, posted, or used to create an account. **Each step below needs Goblin Dev’s explicit go-ahead** before anyone runs it. Do not combine steps: approve and finish one, then the next.
+**Each step below needs Goblin Dev’s explicit go-ahead** before anyone runs it. Do not combine steps: approve and finish one, then the next.
 
-The repo owner is set to `grandlime-labs` (a separate GitHub business account chosen by Goblin Dev). All links use `grandlime-labs/openai-exit-kit` and `grandlime-labs.github.io`. Nothing has been created or published.
+The repo owner is `grandlime-labs`. The public repo, GitHub Pages site, Discussions, and the free npm package `openai-exit-kit` (v0.1.1) are already live. Payments, a custom domain, a form provider, and launch posts are not.
 
 Payments, checkout, paid tiers, and any payment-provider account are prohibited until a business licence is approved. This release is free and open source only.
 
@@ -94,7 +94,9 @@ This is the GitHub-native “notify me about Agent Builder support” waitlist. 
 
 ## 5. Optional npm publish
 
-Checked 2026-11-10: `openai-exit-kit` returned **404** from `https://registry.npmjs.org/openai-exit-kit` and is available. Fallback names that were also 404: `oai-exit-kit`, `evals-exit-kit`, `openai-evals-exit-kit`. Re-check immediately before publish:
+**Done (approved).** The free public package is [`openai-exit-kit`](https://www.npmjs.com/package/openai-exit-kit) v0.1.1. Further npm publishes still need a separate go-ahead.
+
+Checked 2026-11-10 (before the first publish): `openai-exit-kit` returned **404** from `https://registry.npmjs.org/openai-exit-kit`. Fallback names that were also 404: `oai-exit-kit`, `evals-exit-kit`, `openai-evals-exit-kit`. Re-check immediately before any later publish:
 
 ```bash
 curl -sS -o /tmp/npm-name.json -w "%{http_code}\n" https://registry.npmjs.org/openai-exit-kit

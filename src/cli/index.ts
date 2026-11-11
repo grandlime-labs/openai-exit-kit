@@ -5,7 +5,7 @@ import { exportEvals } from "../core/exporter";
 import { DEPRECATIONS_CHECKED, SHUTDOWNS } from "../core/deprecations";
 import type { InputFile } from "../core/types";
 
-const VERSION = "0.1.0";
+const VERSION = "0.1.1";
 
 const HELP = `openai-exit-kit ${VERSION}
 Move off the OpenAI Evals / prompt-object shutdowns (2026-11-30). Runs locally; reads files, writes files.

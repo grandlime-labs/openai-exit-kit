@@ -20,17 +20,14 @@ The shutdown dates come from OpenAI's [deprecations page](https://developers.ope
 
 ## Quick start
 
-Requires Node 20+.
+Requires Node 20+. The CLI is on npm as [`openai-exit-kit`](https://www.npmjs.com/package/openai-exit-kit):
 
 ```bash
-npm install
-npm run build          # web app -> dist/web, CLI -> dist/cli/index.js
-
 # 1. Export from OpenAI (read-only). Use a key for the project that owns the evals.
-OPENAI_API_KEY=sk-... node dist/cli/index.js export --out evals-export
+OPENAI_API_KEY=sk-... npx openai-exit-kit export --out evals-export
 
 # 2. Convert to promptfoo projects (+ prompt objects if they are in the folder)
-node dist/cli/index.js convert evals-export --out promptfoo-out
+npx openai-exit-kit convert evals-export --out promptfoo-out
 
 # 3. Validate without any API key, then run a real eval when you are ready.
 #    promptfoo will call your model provider; that provider bills you. This tool does not.
@@ -38,7 +35,15 @@ npx promptfoo validate config -c promptfoo-out/promptfoo/<eval-folder>/promptfoo
 OPENAI_API_KEY=sk-... npx promptfoo eval -c promptfoo-out/promptfoo/<eval-folder>/promptfooconfig.yaml --no-cache
 ```
 
-Try it on the bundled synthetic fixtures with no key at all:
+To work from a clone of this repo instead:
+
+```bash
+npm install
+npm run build          # web app -> dist/web, CLI -> dist/cli/index.js
+node dist/cli/index.js convert evals-export --out promptfoo-out
+```
+
+Try it on the bundled synthetic fixtures with no key at all (from a clone):
 
 ```bash
 npm run sample         # writes out/sample and out/sample-prompts
@@ -131,7 +136,7 @@ Layout: `src/core` (parse, graders, convert, prompts, exporter, deprecations), `
 
 The converter is built with a Content-Security-Policy of `connect-src 'none'` and `form-action 'none'`, so the browser blocks network requests and form posts from that page. The landing page uses the same policy today. The optional email form on the landing page is a disabled placeholder; if you later enable a free form provider, loosen `form-action` on the landing page only (`vite.config.ts` `LANDING_CSP`, and the `/` and `/index.html` rules in `web/public/_headers`). Never change the converter CSP.
 
-The landing page’s “Get notified” section points at GitHub Watch → Releases and a Discussions link. The optional email form stays disabled (no third-party form service). See `APPROVALS.md` for items that still need a separate go-ahead (custom domain, npm, a form provider, launch posts).
+The landing page’s “Get notified” section points at GitHub Watch → Releases and a Discussions link. The optional email form stays disabled (no third-party form service). See `APPROVALS.md` for items that still need a separate go-ahead (custom domain, a form provider, launch posts).
 
 ### GitHub Pages
 
@@ -150,15 +155,13 @@ To deploy it yourself from a fork: set **Settings > Pages > Source: GitHub Actio
 
 Or without Git: `npm run build:web && npx wrangler pages deploy dist/web --project-name openai-exit-kit` (requires `wrangler login`).
 
-### Publishing the CLI (optional)
+### npm package
 
-Only after explicit approval (see `APPROVALS.md`). `package.json` has `"private": true` so an accidental publish is blocked; set it to `false` when you mean to publish.
-
-As of 2026-11-10, `curl https://registry.npmjs.org/openai-exit-kit` returned HTTP 404, so the name `openai-exit-kit` was available. If it is taken later, `oai-exit-kit` was also available. Re-check the registry immediately before publish. The `bin` entry and `files` list are already set; `prepack` builds the CLI. Publishing the package does not add a paid tier.
+The CLI is published as the free public package [`openai-exit-kit`](https://www.npmjs.com/package/openai-exit-kit) (`npx openai-exit-kit`). The tarball is the bundled CLI, README, and LICENSE; `prepack` rebuilds the CLI. Publishing the package does not add a paid tier.
 
 ## Contributing and security
 
-See `CONTRIBUTING.md` and `SECURITY.md`. The changelog starts at `CHANGELOG.md` (`v0.1.0`).
+See `CONTRIBUTING.md` and `SECURITY.md`. The changelog starts at `CHANGELOG.md` (`v0.1.1`).
 
 Operator notes for a public launch (not required to use the tool): `APPROVALS.md` is the checklist of actions that still need explicit go-ahead; `DEMAND.md` is how to measure demand in the first 14 days with GitHub and the host only.
 
