@@ -1,6 +1,6 @@
 # LAUNCH.md: drafts only
 
-Nothing here has been posted. Every item is a draft for the owner to review, edit and post under their own name. Replace `[REPO_URL]` and `[DEMO_URL]` once they exist.
+Nothing here has been posted. Every item is a draft for the owner to review, edit and post under their own name. The public repo is https://github.com/grandlime-labs/openai-exit-kit and the live demo is https://grandlime-labs.github.io/openai-exit-kit/.
 
 ## Facts every post may use (all checkable)
 
@@ -43,7 +43,7 @@ Converter page (`convert.html`) CTA, once someone clicks Try it: “Load the sam
 
 **Title (80 char limit):** Show HN: Convert OpenAI Evals and stored prompts to promptfoo and plain code
 
-**URL:** [REPO_URL]
+**URL:** https://github.com/grandlime-labs/openai-exit-kit
 
 **First comment (post right after submitting):**
 
@@ -60,7 +60,7 @@ Converter page (`convert.html`) CTA, once someone clicks Try it: “Load the sam
 >
 > The model shutdown table is a dated snapshot of the deprecations page; please double-check it there.
 >
-> Repo: [REPO_URL]  Demo: [DEMO_URL]
+> Repo: https://github.com/grandlime-labs/openai-exit-kit  Demo: https://grandlime-labs.github.io/openai-exit-kit/
 
 Posting notes: submit once, from the owner's own account, and don't ask people to upvote.
 
@@ -76,7 +76,7 @@ Use only under a thread where someone asks how to keep their evals or prompts af
 >
 > Limits: string_check converts exactly; similarity, model-graded and Python graders are mapped approximately and labeled that way in the report, so expect different scores. It doesn't convert Agent Builder workflows.
 >
-> [REPO_URL]. If you hit an export shape it can't read, an issue with a redacted example would help me a lot.
+> https://github.com/grandlime-labs/openai-exit-kit. If you hit an export shape it can't read, an issue with a redacted example would help me a lot.
 
 ---
 
@@ -92,7 +92,7 @@ Use only under a thread where someone asks how to keep their evals or prompts af
 >
 > How I checked it: `promptfoo validate config` passes on all generated configs, and CI runs `promptfoo eval` against a local mock OpenAI server (no API key). Real-account coverage is limited, so feedback on configs that don't behave the way you'd expect would be welcome. I'm especially interested in whether the llm-rubric mapping for score_model/label_model is the idiomatic way to do this.
 >
-> [REPO_URL]
+> https://github.com/grandlime-labs/openai-exit-kit
 
 ---
 
@@ -103,7 +103,7 @@ OpenAI lists Evals, Agent Builder and stored prompts (v1/prompts) for shutdown o
 
 I built a free, open-source converter: Evals export to promptfoo, stored prompts to TypeScript/Python. Runs in your browser, nothing uploaded.
 
-[DEMO_URL]
+https://grandlime-labs.github.io/openai-exit-kit/
 
 **Post 2**
 How the OpenAI Evals to promptfoo converter labels graders:
@@ -112,12 +112,12 @@ exact: string_check
 approximate: similarity, label_model, score_model, python
 manual: anything unrecognized (a failing placeholder on purpose)
 
-No silent greens. Free and MIT: [REPO_URL]
+No silent greens. Free and MIT: https://github.com/grandlime-labs/openai-exit-kit
 
 **Post 3**
 Checking the "client-side only" claim for my converter: the page ships with a Content-Security-Policy of connect-src 'none', so the browser blocks any network request from it. Open dev tools and try fetch().
 
-Evals + stored prompts, before 2026-11-30: [DEMO_URL]
+Evals + stored prompts, before 2026-11-30: https://grandlime-labs.github.io/openai-exit-kit/
 
 ---
 
@@ -126,6 +126,6 @@ Evals + stored prompts, before 2026-11-30: [DEMO_URL]
 Each of these needs an explicit go-ahead. The ordered checklist, with exact click targets and commands, is `APPROVALS.md`. Short version:
 
 1. Re-verify the shutdown dates on OpenAI's deprecations page.
-2. Create the repo, enable Pages or Cloudflare Pages, pin the Discussion, and replace `[REPO_URL]` / `[DEMO_URL]` — only after those items are approved.
+2. The repo and GitHub Pages site are live (URLs above). Pinning the Discussion and any launch posts still need a separate go-ahead.
 3. Post from your own accounts, one place at a time, and read each venue's self-promotion rules first (Hacker News, the OpenAI forum, promptfoo's Discord). Approve each post separately if you want them spaced out.
 4. Answer questions honestly, including "it does not do that". Do not mention a paid plan or collect payment.
