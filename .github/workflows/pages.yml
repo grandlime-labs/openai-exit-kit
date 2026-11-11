@@ -1,9 +1,11 @@
-# Optional: publishes the static landing page and converter (dist/web) to GitHub Pages.
-# It only runs when you start it by hand (Actions tab > "Deploy web app to GitHub Pages" > Run workflow),
-# after you enable Pages in the repo: Settings > Pages > Build and deployment > Source: GitHub Actions.
+# Publishes the static landing page and converter (dist/web) to GitHub Pages.
+# Enable Pages once: Settings > Pages > Build and deployment > Source: GitHub Actions
+# (or `gh api -X POST repos/<owner>/<repo>/pages -f build_type=workflow`).
 name: Deploy web app to GitHub Pages
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -28,9 +30,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm test
-      - run: npm run build:web
-      - uses: actions/configure-pages@v5
+      - id: pages
+        uses: actions/configure-pages@v5
+      - name: Build web app
+        run: npm run build:web
+        env:
+          GITHUB_PAGES_BASE: ${{ steps.pages.outputs.base_path }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/web

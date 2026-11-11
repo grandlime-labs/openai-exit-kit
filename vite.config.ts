@@ -29,10 +29,18 @@ const cspPlugin = (): Plugin => ({
 });
 
 // Multi-page: landing at index.html, converter at convert.html.
-// Relative asset paths so the same output works on GitHub Pages (project sites) and Cloudflare Pages.
+// Default base is relative so local preview and non-Pages hosts work. The GitHub Pages
+// workflow sets GITHUB_PAGES_BASE to the project path (e.g. /openai-exit-kit/).
+function pagesBase(): string {
+  const raw = process.env.GITHUB_PAGES_BASE?.trim();
+  if (!raw || raw === "./") return "./";
+  const withLead = raw.startsWith("/") ? raw : `/${raw}`;
+  return withLead.endsWith("/") ? withLead : `${withLead}/`;
+}
+
 export default defineConfig({
   root: "web",
-  base: "./",
+  base: pagesBase(),
   plugins: [cspPlugin()],
   server: { fs: { allow: [".."] } },
   build: {

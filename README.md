@@ -131,15 +131,16 @@ Layout: `src/core` (parse, graders, convert, prompts, exporter, deprecations), `
 
 The converter is built with a Content-Security-Policy of `connect-src 'none'` and `form-action 'none'`, so the browser blocks network requests and form posts from that page. The landing page uses the same policy today. The optional email form on the landing page is a disabled placeholder; if you later enable a free form provider, loosen `form-action` on the landing page only (`vite.config.ts` `LANDING_CSP`, and the `/` and `/index.html` rules in `web/public/_headers`). Never change the converter CSP.
 
-The landing page’s “Get notified” section points at GitHub Watch → Releases and a pinned Discussion. Those links use the placeholder `grandlime-labs/openai-exit-kit` until the repo exists. See `APPROVALS.md` before creating a repo, enabling Pages, or adding a form provider.
+The landing page’s “Get notified” section points at GitHub Watch → Releases and a Discussions link. The optional email form stays disabled (no third-party form service). See `APPROVALS.md` for items that still need a separate go-ahead (custom domain, npm, a form provider, launch posts).
 
 ### GitHub Pages
 
-1. Push this repo to GitHub.
-2. Repo **Settings > Pages > Build and deployment > Source: GitHub Actions**.
-3. Actions tab > **Deploy web app to GitHub Pages** > **Run workflow**. (`.github/workflows/pages.yml` is manual-only so nothing deploys until you ask.)
-4. The site is then `https://<user>.github.io/<repo>/` (landing) and `https://<user>.github.io/<repo>/convert.html` (converter).
-5. Optional custom domain: Settings > Pages > Custom domain, then create the DNS record GitHub shows you (a `CNAME` to `<user>.github.io` for a subdomain).
+The site is deployed automatically from `main` by `.github/workflows/pages.yml` (Node 22, `npm ci`, Vite base `/openai-exit-kit/`):
+
+- Landing: https://grandlime-labs.github.io/openai-exit-kit/
+- Converter: https://grandlime-labs.github.io/openai-exit-kit/convert.html
+
+To deploy it yourself from a fork: set **Settings > Pages > Source: GitHub Actions**, then push `main` or run the workflow by hand. A custom domain is optional and not configured.
 
 ### Cloudflare Pages
 
