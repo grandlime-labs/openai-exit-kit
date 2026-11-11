@@ -1,0 +1,51 @@
+{
+  "object": "eval",
+  "id": "eval_fx_news_topics",
+  "name": "News headline topic classifier",
+  "created_at": 1789000000,
+  "data_source_config": {
+    "type": "custom",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "type": "object",
+          "properties": {
+            "input": {
+              "type": "string"
+            },
+            "ground_truth": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "input",
+            "ground_truth"
+          ]
+        }
+      },
+      "required": [
+        "item"
+      ]
+    }
+  },
+  "testing_criteria": [
+    {
+      "type": "string_check",
+      "name": "Exact topic match",
+      "input": "{{ sample.output_text }}",
+      "operation": "eq",
+      "reference": "{{ item.ground_truth }}"
+    },
+    {
+      "type": "string_check",
+      "name": "Topic mentioned (any case)",
+      "input": "{{ sample.output_text }}",
+      "operation": "ilike",
+      "reference": "{{ item.ground_truth }}"
+    }
+  ],
+  "metadata": {
+    "description": "Synthetic fixture"
+  }
+}

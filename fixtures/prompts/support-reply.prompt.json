@@ -1,0 +1,64 @@
+{
+  "object": "prompt",
+  "id": "pmpt_fx_support_reply",
+  "name": "support-reply",
+  "description": "Replies to support tickets (synthetic fixture)",
+  "latest_version": "3",
+  "versions": [
+    {
+      "version": "1",
+      "instructions": "You are a helpful support assistant. Be concise, accurate, and friendly.\nCustomer name: {{customer_name}}. Issue: {{issue}}. Write a response to the customer.",
+      "variables": [
+        "customer_name",
+        "issue"
+      ]
+    },
+    {
+      "version": "2",
+      "messages": [
+        {
+          "role": "developer",
+          "content": "You are a helpful support assistant. Be concise, accurate, and friendly. Do not invent policy details."
+        },
+        {
+          "role": "user",
+          "content": "Customer name: {{ customer_name }}. Issue: {{ issue }}. Write a response to the customer."
+        }
+      ],
+      "variables": {
+        "customer_name": "Acme",
+        "issue": "billing question"
+      }
+    },
+    {
+      "version": "3",
+      "model": "gpt-5.6-terra",
+      "messages": [
+        {
+          "role": "developer",
+          "content": [
+            {
+              "type": "input_text",
+              "text": "You are a helpful support assistant. Do not invent policy details.\nAlways answer in the customer's language. Use `code` formatting only for commands, never for names.\nReturn JSON like {\"reply\": \"...\", \"tone\": \"friendly\"} when {{ output_format }} is json; the price shown is ${price} USD (a literal, not a variable)."
+            }
+          ]
+        },
+        {
+          "role": "user",
+          "content": [
+            {
+              "type": "input_text",
+              "text": "Customer name: {{customer_name}}. Plan: {{ plan.tier }}. Issue: {{issue}}.\nBackslash \\ and \"quotes\" and unicode: café, 日本語."
+            }
+          ]
+        }
+      ],
+      "variables": [
+        "customer_name",
+        "issue",
+        "plan.tier",
+        "output_format"
+      ]
+    }
+  ]
+}

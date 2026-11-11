@@ -1,0 +1,40 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "eval.run",
+      "id": "evalrun_fx_push_1",
+      "eval_id": "eval_fx_push_summaries",
+      "status": "completed",
+      "model": "gpt-4.1-mini-2025-04-14",
+      "name": "stored completions run",
+      "created_at": 1789000700,
+      "result_counts": {
+        "total": 4,
+        "errored": 0,
+        "passed": 3,
+        "failed": 1
+      },
+      "data_source": {
+        "type": "completions",
+        "source": {
+          "type": "stored_completions",
+          "created_after": 1788913600,
+          "limit": 4,
+          "model": "gpt-4.1-mini-2025-04-14"
+        },
+        "input_messages": {
+          "type": "item_reference",
+          "item_reference": "item.input_trajectory"
+        },
+        "model": "gpt-4.1-mini-2025-04-14",
+        "sampling_params": {
+          "temperature": 1
+        }
+      },
+      "error": null,
+      "metadata": {}
+    }
+  ],
+  "has_more": false
+}

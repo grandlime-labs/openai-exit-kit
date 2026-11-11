@@ -1,0 +1,47 @@
+name: Bug report
+description: Something in the converter, CLI, or web app is broken.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please do **not** paste API keys, account dumps, or unredacted customer prompts. This project is free and open source; a clear reproduction helps more than a large file.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where did it happen?
+      options:
+        - Web converter
+        - CLI convert
+        - CLI prompts
+        - CLI export
+        - Docs / landing page
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What you expected, and what you actually got. Include the exact command or button you used.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Release tag, npm version, or git commit if you know it.
+      placeholder: "0.1.0"
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Node version (`node -v`), and browser if this is the web app.
+      placeholder: "macOS 15, Node 22.11, Firefox 133"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error message or logs
+      description: Paste the error text only. Redact keys and personal data.
+      render: text

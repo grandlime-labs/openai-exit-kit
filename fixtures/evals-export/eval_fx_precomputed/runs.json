@@ -1,0 +1,76 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "eval.run",
+      "id": "evalrun_fx_pre_1",
+      "eval_id": "eval_fx_precomputed",
+      "status": "completed",
+      "model": null,
+      "name": "precomputed",
+      "created_at": 1789000500,
+      "result_counts": {
+        "total": 5,
+        "errored": 0,
+        "passed": 3,
+        "failed": 2
+      },
+      "data_source": {
+        "type": "jsonl",
+        "source": {
+          "type": "file_content",
+          "content": [
+            {
+              "item": {
+                "fact": "Refunds are processed within 5 business days.",
+                "keyword": "refund"
+              },
+              "sample": {
+                "output_text": "Refunds take about five business days to process."
+              }
+            },
+            {
+              "item": {
+                "fact": "The Safari export bug is fixed in release 4.2.",
+                "keyword": "Safari"
+              },
+              "sample": {
+                "output_text": "A Safari export bug was fixed in 4.2."
+              }
+            },
+            {
+              "item": {
+                "fact": "SSO is available on the Business plan.",
+                "keyword": "SSO"
+              },
+              "sample": {
+                "output_text": "Single sign-on comes with the Business plan."
+              }
+            },
+            {
+              "item": {
+                "fact": "Drafts are kept for 30 days.",
+                "keyword": "30 days"
+              },
+              "sample": {
+                "output_text": "We keep drafts for a month."
+              }
+            },
+            {
+              "item": {
+                "fact": "Plan changes are prorated.",
+                "keyword": "prorat"
+              },
+              "sample": {
+                "output_text": "Plan changes are prorated automatically."
+              }
+            }
+          ]
+        }
+      },
+      "error": null,
+      "metadata": {}
+    }
+  ],
+  "has_more": false
+}

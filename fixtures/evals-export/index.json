@@ -1,0 +1,23 @@
+{
+  "exported_at": 1789000800,
+  "api": "https://api.openai.com/v1",
+  "evals": [
+    {
+      "id": "eval_fx_news_topics",
+      "name": "News headline topic classifier"
+    },
+    {
+      "id": "eval_fx_support_quality",
+      "name": "Support reply quality"
+    },
+    {
+      "id": "eval_fx_precomputed",
+      "name": "Pre-computed summary checks"
+    },
+    {
+      "id": "eval_fx_push_summaries",
+      "name": "Push notification summaries"
+    }
+  ],
+  "warnings": []
+}

@@ -1,0 +1,90 @@
+{
+  "object": "eval",
+  "id": "eval_fx_support_quality",
+  "name": "Support reply quality",
+  "created_at": 1789000200,
+  "data_source_config": {
+    "type": "custom",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "type": "object",
+          "properties": {
+            "ticket": {
+              "type": "string"
+            },
+            "reference_answer": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "ticket",
+            "reference_answer"
+          ]
+        }
+      },
+      "required": [
+        "item"
+      ]
+    }
+  },
+  "testing_criteria": [
+    {
+      "type": "text_similarity",
+      "name": "Fuzzy match to reference",
+      "input": "{{ sample.output_text }}",
+      "reference": "{{ item.reference_answer }}",
+      "evaluation_metric": "fuzzy_match",
+      "pass_threshold": 0.6
+    },
+    {
+      "type": "text_similarity",
+      "name": "Embedding similarity",
+      "input": "{{ sample.output_text }}",
+      "reference": "{{ item.reference_answer }}",
+      "evaluation_metric": "cosine",
+      "pass_threshold": 0.8
+    },
+    {
+      "type": "text_similarity",
+      "name": "ROUGE-2",
+      "input": "{{ sample.output_text }}",
+      "reference": "{{ item.reference_answer }}",
+      "evaluation_metric": "rouge_2",
+      "pass_threshold": 0.3
+    },
+    {
+      "type": "score_model",
+      "name": "Helpfulness 0-10",
+      "model": "gpt-4.1-2025-04-14",
+      "range": [
+        0,
+        10
+      ],
+      "pass_threshold": 7,
+      "sampling_params": {
+        "temperature": 0,
+        "top_p": 1
+      },
+      "input": [
+        {
+          "role": "system",
+          "content": "You grade customer-support replies. Score 0-10 for helpfulness, accuracy and tone compared with the reference answer. 10 means it would satisfy the customer."
+        },
+        {
+          "role": "user",
+          "content": "Customer ticket: {{ item.ticket }}\nReference answer: {{ item.reference_answer }}\nReply to grade: {{ sample.output_text }}"
+        }
+      ]
+    },
+    {
+      "type": "python",
+      "name": "Length and keyword check",
+      "pass_threshold": 0.7,
+      "image_tag": "2025-05-08",
+      "source": "from rapidfuzz import fuzz, utils\n\ndef grade(sample, item) -> float:\n    out = sample[\"output_text\"]\n    ref = item[\"reference_answer\"]\n    score = fuzz.WRatio(out, ref, processor=utils.default_process) / 100.0\n    if len(out) > 600:\n        score *= 0.5\n    return score\n"
+    }
+  ],
+  "metadata": {}
+}

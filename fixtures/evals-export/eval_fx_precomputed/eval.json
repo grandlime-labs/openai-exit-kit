@@ -1,0 +1,72 @@
+{
+  "object": "eval",
+  "id": "eval_fx_precomputed",
+  "name": "Pre-computed summary checks",
+  "created_at": 1789000400,
+  "data_source_config": {
+    "type": "custom",
+    "schema": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "type": "object"
+        },
+        "sample": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "item",
+        "sample"
+      ]
+    }
+  },
+  "testing_criteria": [
+    {
+      "type": "string_check",
+      "name": "Mentions keyword",
+      "input": "{{ sample.output_text }}",
+      "operation": "like",
+      "reference": "{{ item.keyword }}"
+    },
+    {
+      "type": "string_check",
+      "name": "Reference mentions summary keyword (reversed)",
+      "input": "{{ item.fact }}",
+      "operation": "ilike",
+      "reference": "{{ item.keyword }}"
+    },
+    {
+      "type": "text_similarity",
+      "name": "BLEU vs fact",
+      "input": "{{ sample.output_text }}",
+      "reference": "{{ item.fact }}",
+      "evaluation_metric": "bleu",
+      "pass_threshold": 0.2
+    },
+    {
+      "type": "multi",
+      "name": "Weighted check",
+      "pass_threshold": 0.7,
+      "calculate_output": "0.5 * kw + 0.5 * sim",
+      "graders": {
+        "kw": {
+          "type": "string_check",
+          "name": "kw",
+          "input": "{{ sample.output_text }}",
+          "operation": "ilike",
+          "reference": "{{ item.keyword }}"
+        },
+        "sim": {
+          "type": "text_similarity",
+          "name": "sim",
+          "input": "{{ sample.output_text }}",
+          "reference": "{{ item.fact }}",
+          "evaluation_metric": "fuzzy_match",
+          "pass_threshold": 0.5
+        }
+      }
+    }
+  ],
+  "metadata": {}
+}

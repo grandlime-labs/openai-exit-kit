@@ -1,0 +1,6 @@
+{"item":{"ticket":"My invoice shows two charges for November.","reference_answer":"I'm sorry about the duplicate charge. I've asked billing to refund the extra payment; you'll see it within 5 business days."}}
+{"item":{"ticket":"How do I reset my password?","reference_answer":"You can reset your password from the sign-in page with the 'Forgot password' link. We'll email you a reset link."}}
+{"item":{"ticket":"The export button does nothing in Safari.","reference_answer":"Thanks for reporting this. We've reproduced the Safari export issue and a fix is scheduled for next week's release."}}
+{"item":{"ticket":"Can I change my plan mid-cycle?","reference_answer":"Yes. You can change plans at any time in Billing settings, and we'll prorate the difference."}}
+{"item":{"ticket":"Do you support SSO?","reference_answer":"SSO via SAML is available on the Business plan. I can connect you with our team to set it up."}}
+{"item":{"ticket":"Your app deleted my draft.","reference_answer":"I'm sorry you lost your draft. Drafts are kept for 30 days in Trash under Settings; I can restore it for you if you share the title."}}

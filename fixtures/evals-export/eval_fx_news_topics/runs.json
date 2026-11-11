@@ -1,0 +1,250 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "eval.run",
+      "id": "evalrun_fx_news_1",
+      "eval_id": "eval_fx_news_topics",
+      "status": "completed",
+      "model": "gpt-4o-mini-2024-07-18",
+      "name": "gpt-4o-mini-2024-07-18",
+      "created_at": 1789000100,
+      "report_url": "https://platform.openai.com/evaluations/eval_fx_news_topics?run_id=evalrun_fx_news_1",
+      "result_counts": {
+        "total": 10,
+        "errored": 0,
+        "passed": 8,
+        "failed": 2
+      },
+      "per_model_usage": null,
+      "per_testing_criteria_results": [
+        {
+          "testing_criteria": "Exact topic match",
+          "passed": 8,
+          "failed": 2
+        }
+      ],
+      "data_source": {
+        "type": "completions",
+        "source": {
+          "type": "file_content",
+          "content": [
+            {
+              "item": {
+                "input": "Tech Company Launches Advanced Artificial Intelligence Platform",
+                "ground_truth": "Technology"
+              }
+            },
+            {
+              "item": {
+                "input": "Central Bank Increases Interest Rates Amid Inflation Concerns",
+                "ground_truth": "Markets"
+              }
+            },
+            {
+              "item": {
+                "input": "International Summit Addresses Climate Change Strategies",
+                "ground_truth": "World"
+              }
+            },
+            {
+              "item": {
+                "input": "Major Retailer Reports Record-Breaking Holiday Sales",
+                "ground_truth": "Business"
+              }
+            },
+            {
+              "item": {
+                "input": "National Team Qualifies for World Championship Finals",
+                "ground_truth": "Sports"
+              }
+            },
+            {
+              "item": {
+                "input": "Stock Markets Rally After Positive Economic Data Released",
+                "ground_truth": "Markets"
+              }
+            },
+            {
+              "item": {
+                "input": "Global Manufacturer Announces Merger with Competitor",
+                "ground_truth": "Business"
+              }
+            },
+            {
+              "item": {
+                "input": "Breakthrough in Renewable Energy Technology Unveiled",
+                "ground_truth": "Technology"
+              }
+            },
+            {
+              "item": {
+                "input": "World Leaders Sign Historic Climate Agreement",
+                "ground_truth": "World"
+              }
+            },
+            {
+              "item": {
+                "input": "Professional Athlete Sets New Record in Championship Event",
+                "ground_truth": "Sports"
+              }
+            }
+          ]
+        },
+        "input_messages": {
+          "type": "template",
+          "template": [
+            {
+              "type": "message",
+              "role": "developer",
+              "content": {
+                "type": "input_text",
+                "text": "Categorize a given news headline into one of the following topics: Technology, Markets, World, Business, or Sports.\n\n# Output Format\n\nRespond with the chosen category as a single word."
+              }
+            },
+            {
+              "type": "message",
+              "role": "user",
+              "content": {
+                "type": "input_text",
+                "text": "{{item.input}}"
+              }
+            }
+          ]
+        },
+        "model": "gpt-4o-mini-2024-07-18",
+        "sampling_params": {
+          "temperature": 0,
+          "max_completions_tokens": 256,
+          "seed": 42
+        }
+      },
+      "error": null,
+      "metadata": {}
+    },
+    {
+      "object": "eval.run",
+      "id": "evalrun_fx_news_2",
+      "eval_id": "eval_fx_news_topics",
+      "status": "completed",
+      "model": "gpt-5.6-terra",
+      "name": "gpt-5.6-terra",
+      "created_at": 1789005000,
+      "report_url": "https://platform.openai.com/evaluations/eval_fx_news_topics?run_id=evalrun_fx_news_2",
+      "result_counts": {
+        "total": 10,
+        "errored": 0,
+        "passed": 9,
+        "failed": 1
+      },
+      "per_model_usage": null,
+      "per_testing_criteria_results": [
+        {
+          "testing_criteria": "Exact topic match",
+          "passed": 9,
+          "failed": 1
+        }
+      ],
+      "data_source": {
+        "type": "completions",
+        "source": {
+          "type": "file_content",
+          "content": [
+            {
+              "item": {
+                "input": "Tech Company Launches Advanced Artificial Intelligence Platform",
+                "ground_truth": "Technology"
+              }
+            },
+            {
+              "item": {
+                "input": "Central Bank Increases Interest Rates Amid Inflation Concerns",
+                "ground_truth": "Markets"
+              }
+            },
+            {
+              "item": {
+                "input": "International Summit Addresses Climate Change Strategies",
+                "ground_truth": "World"
+              }
+            },
+            {
+              "item": {
+                "input": "Major Retailer Reports Record-Breaking Holiday Sales",
+                "ground_truth": "Business"
+              }
+            },
+            {
+              "item": {
+                "input": "National Team Qualifies for World Championship Finals",
+                "ground_truth": "Sports"
+              }
+            },
+            {
+              "item": {
+                "input": "Stock Markets Rally After Positive Economic Data Released",
+                "ground_truth": "Markets"
+              }
+            },
+            {
+              "item": {
+                "input": "Global Manufacturer Announces Merger with Competitor",
+                "ground_truth": "Business"
+              }
+            },
+            {
+              "item": {
+                "input": "Breakthrough in Renewable Energy Technology Unveiled",
+                "ground_truth": "Technology"
+              }
+            },
+            {
+              "item": {
+                "input": "World Leaders Sign Historic Climate Agreement",
+                "ground_truth": "World"
+              }
+            },
+            {
+              "item": {
+                "input": "Professional Athlete Sets New Record in Championship Event",
+                "ground_truth": "Sports"
+              }
+            }
+          ]
+        },
+        "input_messages": {
+          "type": "template",
+          "template": [
+            {
+              "type": "message",
+              "role": "developer",
+              "content": {
+                "type": "input_text",
+                "text": "Categorize a given news headline into one of the following topics: Technology, Markets, World, Business, or Sports.\n\n# Output Format\n\nRespond with the chosen category as a single word."
+              }
+            },
+            {
+              "type": "message",
+              "role": "user",
+              "content": {
+                "type": "input_text",
+                "text": "{{item.input}}"
+              }
+            }
+          ]
+        },
+        "model": "gpt-5.6-terra",
+        "sampling_params": {
+          "temperature": 0,
+          "max_completions_tokens": 256,
+          "seed": 42
+        }
+      },
+      "error": null,
+      "metadata": {}
+    }
+  ],
+  "first_id": "evalrun_fx_news_1",
+  "last_id": "evalrun_fx_news_2",
+  "has_more": false
+}

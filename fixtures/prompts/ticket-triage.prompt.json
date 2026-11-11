@@ -1,0 +1,29 @@
+{
+  "id": "pmpt_fx_triage",
+  "name": "Ticket triage",
+  "version": "1",
+  "model": "gpt-5.1",
+  "input": [
+    {
+      "role": "system",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "Classify the ticket into one of: billing, bug, how-to, other."
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "input_text",
+          "text": "{{ticket_text}}"
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "ticket_text": "The export button does nothing."
+  }
+}

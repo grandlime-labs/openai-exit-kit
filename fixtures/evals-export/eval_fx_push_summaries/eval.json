@@ -1,0 +1,64 @@
+{
+  "object": "eval",
+  "id": "eval_fx_push_summaries",
+  "name": "Push notification summaries",
+  "created_at": 1789000600,
+  "data_source_config": {
+    "type": "stored_completions",
+    "metadata": {
+      "usecase": "push_notifications_summarizer"
+    },
+    "schema": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "type": "object"
+        },
+        "sample": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "item",
+        "sample"
+      ]
+    }
+  },
+  "testing_criteria": [
+    {
+      "type": "label_model",
+      "name": "Push Notification Summary Grader",
+      "id": "grader-fx-1",
+      "model": "o3-mini-2025-01-31",
+      "labels": [
+        "correct",
+        "incorrect"
+      ],
+      "passing_labels": [
+        "correct"
+      ],
+      "sampling_params": null,
+      "input": [
+        {
+          "type": "message",
+          "role": "developer",
+          "content": {
+            "type": "input_text",
+            "text": "Label the following push notification summary as either correct or incorrect. A good summary is concise and snappy."
+          }
+        },
+        {
+          "type": "message",
+          "role": "user",
+          "content": {
+            "type": "input_text",
+            "text": "Push notifications: {{item.input}}\nSummary: {{sample.output_text}}"
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "description": "Synthetic fixture shaped after the API reference example"
+  }
+}

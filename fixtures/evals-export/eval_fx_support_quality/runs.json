@@ -1,0 +1,152 @@
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "eval.run",
+      "id": "evalrun_fx_support_1",
+      "eval_id": "eval_fx_support_quality",
+      "status": "completed",
+      "model": "gpt-4.1-2025-04-14",
+      "name": "gpt-4.1-2025-04-14 (completions)",
+      "created_at": 1789000300,
+      "result_counts": {
+        "total": 6,
+        "errored": 0,
+        "passed": 4,
+        "failed": 2
+      },
+      "per_testing_criteria_results": [
+        {
+          "testing_criteria": "Fuzzy match to reference",
+          "passed": 4,
+          "failed": 2
+        },
+        {
+          "testing_criteria": "Embedding similarity",
+          "passed": 4,
+          "failed": 2
+        },
+        {
+          "testing_criteria": "ROUGE-2",
+          "passed": 4,
+          "failed": 2
+        },
+        {
+          "testing_criteria": "Helpfulness 0-10",
+          "passed": 4,
+          "failed": 2
+        },
+        {
+          "testing_criteria": "Length and keyword check",
+          "passed": 4,
+          "failed": 2
+        }
+      ],
+      "data_source": {
+        "type": "completions",
+        "source": {
+          "type": "file_id",
+          "id": "file-fxSupport01"
+        },
+        "input_messages": {
+          "type": "template",
+          "template": [
+            {
+              "role": "developer",
+              "content": "You are a helpful support assistant. Be concise, accurate, and friendly. Do not invent policy details."
+            },
+            {
+              "role": "user",
+              "content": "Customer ticket: {{ item.ticket }}. Write a reply to the customer."
+            }
+          ]
+        },
+        "model": "gpt-4.1-2025-04-14",
+        "sampling_params": {
+          "temperature": 0.2,
+          "top_p": 1,
+          "max_completion_tokens": 400,
+          "seed": 7
+        }
+      },
+      "error": null,
+      "metadata": {
+        "team": "support"
+      }
+    },
+    {
+      "object": "eval.run",
+      "id": "evalrun_fx_support_2",
+      "eval_id": "eval_fx_support_quality",
+      "status": "completed",
+      "model": "gpt-5.6-terra",
+      "name": "gpt-5.6-terra (responses)",
+      "created_at": 1789006000,
+      "result_counts": {
+        "total": 6,
+        "errored": 0,
+        "passed": 4,
+        "failed": 2
+      },
+      "per_testing_criteria_results": [
+        {
+          "testing_criteria": "Fuzzy match to reference",
+          "passed": 4,
+          "failed": 2
+        },
+        {
+          "testing_criteria": "Embedding similarity",
+          "passed": 4,
+          "failed": 2
+        },
+        {
+          "testing_criteria": "ROUGE-2",
+          "passed": 4,
+          "failed": 2
+        },
+        {
+          "testing_criteria": "Helpfulness 0-10",
+          "passed": 4,
+          "failed": 2
+        },
+        {
+          "testing_criteria": "Length and keyword check",
+          "passed": 4,
+          "failed": 2
+        }
+      ],
+      "data_source": {
+        "type": "responses",
+        "source": {
+          "type": "file_id",
+          "id": "file-fxSupport01"
+        },
+        "input_messages": {
+          "type": "template",
+          "template": [
+            {
+              "role": "developer",
+              "content": "You are a helpful support assistant. Be concise, accurate, and friendly. Do not invent policy details."
+            },
+            {
+              "role": "user",
+              "content": "Customer ticket: {{ item.ticket }}. Write a reply to the customer."
+            }
+          ]
+        },
+        "model": "gpt-5.6-terra",
+        "sampling_params": {
+          "temperature": 0.2,
+          "max_completion_tokens": 400,
+          "reasoning_effort": "low",
+          "seed": 7
+        }
+      },
+      "error": null,
+      "metadata": {
+        "team": "support"
+      }
+    }
+  ],
+  "has_more": false
+}

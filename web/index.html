@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OpenAI Exit Kit — free converter for Evals and stored prompts</title>
+  <meta name="description" content="Free, open-source converter. Turn an OpenAI Evals export into promptfoo projects and stored prompt objects into TypeScript and Python. Runs fully in your browser; files never leave your machine." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="./style.css" />
+  <!--
+    Placeholders to replace after the GitHub repo exists:
+      grandlime-labs/openai-exit-kit  -> your GitHub user or org and repo name
+    See APPROVALS.md. Do not loosen this page's CSP until an email form is actually enabled.
+  -->
+</head>
+<body>
+  <nav class="topnav">
+    <a class="brand" href="./index.html">OpenAI Exit Kit</a>
+    <a href="https://github.com/grandlime-labs/openai-exit-kit">GitHub</a>
+  </nav>
+
+  <header class="hero">
+    <p class="eyebrow">Free and open source. MIT licensed. No account required.</p>
+    <h1>OpenAI is shutting down Evals and stored prompts on 2026-11-30. Get your work out first.</h1>
+    <p class="sub">This tool turns an OpenAI Evals export into a promptfoo project for each eval (config, tests, graders, and a migration report), and turns stored prompt objects into plain TypeScript and Python functions.</p>
+    <p class="privacy"><strong>Privacy:</strong> the converter runs fully in your browser. Your files are never uploaded. The converter page is built with a Content-Security-Policy of <code>connect-src 'none'</code>, so the browser itself blocks network requests from that page.</p>
+    <div class="cta-row">
+      <a class="btn large" href="./convert.html">Try it</a>
+      <a class="btn secondary large" href="https://github.com/grandlime-labs/openai-exit-kit">View on GitHub</a>
+    </div>
+    <p class="fine">Shutdown dates: <a href="https://developers.openai.com/api/docs/deprecations" rel="noopener">OpenAI deprecations page</a> (re-checked 2026-11-10). Check it yourself; dates can change. This project is not affiliated with OpenAI or promptfoo.</p>
+  </header>
+
+  <main>
+    <section class="panel" aria-labelledby="does-h">
+      <h2 id="does-h">What it does</h2>
+      <ul>
+        <li>Reads eval definitions, run objects, output items, and dataset files.</li>
+        <li>Maps <code>string_check</code>, <code>text_similarity</code>, <code>label_model</code>, <code>score_model</code>, <code>python</code>, and <code>multi</code> graders to promptfoo assertions, and labels each mapping exact, approximate, or manual.</li>
+        <li>Turns stored prompt objects (versions and variables) into typed functions you can keep in git.</li>
+        <li>Also ships as a command-line tool, including a read-only exporter that only makes GET requests.</li>
+      </ul>
+      <p class="muted">It does not call a model, compute scores, or migrate Agent Builder workflows. Manual graders are written as failing placeholders on purpose, so a result can never look green because a grader was skipped.</p>
+    </section>
+
+    <section class="panel" aria-labelledby="notify-h">
+      <h2 id="notify-h">Get notified</h2>
+      <p>No account with us is required. The waitlist is GitHub-native, so nothing is collected here.</p>
+      <ol class="notify-steps">
+        <li>
+          <strong>Watch releases.</strong> On the repo, click <em>Watch</em> → <em>Custom</em> → check <em>Releases</em> → <em>Apply</em>.
+          GitHub will email you when a new version is published (for example, Agent Builder support).
+          <div><a href="https://github.com/grandlime-labs/openai-exit-kit/subscription">Open the Watch settings</a></div>
+        </li>
+        <li>
+          <strong>Pin yourself to the Agent Builder thread.</strong> Subscribe to the pinned Discussion
+          “Notify me about Agent Builder support” (this tool does not convert Agent Builder workflows yet).
+          <div><a href="https://github.com/grandlime-labs/openai-exit-kit/discussions">Open Discussions</a></div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="panel placeholder-box" aria-labelledby="email-h">
+      <h2 id="email-h">Optional email form — not enabled</h2>
+      <p>This section is a placeholder. <strong>No email is collected</strong> and the form is not wired to any service. To get updates today, use Watch → Releases or the Discussion above.</p>
+      <p class="muted">Maintainers: to enable a free-tier form later, create an account at Formspree, Tally, or Buttondown (that account requires explicit approval — see <code>APPROVALS.md</code>), paste the form endpoint in the <code>action</code> below, un-hide the form, and loosen <em>only</em> this landing page’s <code>form-action</code> CSP to that provider. Do not change the converter page’s CSP (<code>convert.html</code> must stay <code>connect-src 'none'</code> and <code>form-action 'none'</code>). Require a consent checkbox. Collect nothing without consent.</p>
+      <!--
+        Enable steps (do not do this until approved):
+        1. Create a free Formspree / Tally / Buttondown account.
+        2. Replace FORM_ENDPOINT_PLACEHOLDER with the provider's form action URL.
+        3. Update LANDING_CSP in vite.config.ts and the `/` and `/index.html` rules in web/public/_headers:
+           form-action https://formspree.io   (or your provider origin)
+        4. Remove the `hidden` attribute on the form.
+      -->
+      <form id="email-form" hidden method="post" action="FORM_ENDPOINT_PLACEHOLDER">
+        <p>
+          <label for="email">Email</label><br />
+          <input id="email" type="email" name="email" autocomplete="email" required />
+        </p>
+        <p>
+          <label>
+            <input type="checkbox" name="consent" value="yes" required />
+            I agree to be emailed about OpenAI Exit Kit only. I can unsubscribe at any time.
+          </label>
+        </p>
+        <button type="submit" class="btn">Notify me by email</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>MIT licensed. Free and open source. There is no paid tier and this site does not take payment. <a href="./convert.html">Try the converter</a> · <a href="https://github.com/grandlime-labs/openai-exit-kit">Source</a>.</p>
+  </footer>
+</body>
+</html>

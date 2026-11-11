@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Try it — OpenAI Exit Kit converter</title>
+  <meta name="description" content="Free, open-source, runs in your browser. Convert an OpenAI Evals export to promptfoo configs and stored prompt objects to TypeScript/Python before the 2026-11-30 shutdown. Files never leave your machine." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <nav class="topnav">
+    <a class="brand" href="./index.html">OpenAI Exit Kit</a>
+    <a href="https://github.com/grandlime-labs/openai-exit-kit">GitHub</a>
+  </nav>
+  <header class="hero">
+    <p class="eyebrow">Free and open source. Nothing is uploaded.</p>
+    <h1>OpenAI is shutting down Evals and stored prompts on 2026-11-30. Get your work out first.</h1>
+    <p class="sub">Drop in an Evals export and this page writes a promptfoo project for each eval (config, tests, migration report). Drop in stored prompt objects and it writes TypeScript and Python functions. The conversion runs in your browser; the page is built so it cannot make network requests.</p>
+    <p class="fine">Source: <a href="https://developers.openai.com/api/docs/deprecations" rel="noopener">OpenAI deprecations page</a>. Check it yourself; dates can change.</p>
+  </header>
+
+  <main>
+    <section class="panel" aria-labelledby="in-h">
+      <h2 id="in-h">1. Add your files</h2>
+      <div id="drop" class="drop" tabindex="0" role="button" aria-label="Drop files or folders here">
+        <strong>Drop files or a folder here</strong>
+        <span>eval.json, runs.json, *.output_items.jsonl, dataset *.jsonl, prompt object *.json, or plain .txt/.md prompts</span>
+        <div class="row">
+          <label class="btn">Choose files<input id="pick-files" type="file" multiple hidden /></label>
+          <label class="btn">Choose folder<input id="pick-folder" type="file" webkitdirectory multiple hidden /></label>
+          <button id="sample" class="btn secondary" type="button">Load the sample fixtures</button>
+          <button id="clear" class="btn ghost" type="button">Clear</button>
+        </div>
+      </div>
+      <div class="opts">
+        <label><input id="opt-replace" type="checkbox" /> Swap model ids that are being shut down for OpenAI's suggested replacement (the report still lists the originals)</label>
+      </div>
+      <p id="loaded" class="muted" aria-live="polite">No files loaded.</p>
+      <p class="muted">Need the export first? The command-line tool in the project README downloads your evals, runs, output items and datasets with read-only GET requests: <code>OPENAI_API_KEY=... openai-exit-kit export --out evals-export</code>. Or use the data you already downloaded from the dashboard.</p>
+    </section>
+
+    <section id="results" class="panel" hidden aria-labelledby="out-h">
+      <h2 id="out-h">2. Review and download</h2>
+      <ul id="summary" class="summary"></ul>
+      <details id="warn-box" open><summary id="warn-title">Warnings</summary><ul id="warnings"></ul></details>
+      <div class="row">
+        <button id="zip" class="btn" type="button">Download everything (.zip)</button>
+      </div>
+      <div class="split">
+        <ul id="filelist" class="filelist" aria-label="Generated files"></ul>
+        <div class="preview">
+          <div class="row between"><code id="preview-name">-</code><button id="dl-one" class="btn secondary" type="button" disabled>Download this file</button></div>
+          <pre id="preview" tabindex="0"></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>What to trust</h2>
+      <ul>
+        <li>Every grader is labeled <b>exact</b>, <b>approximate</b> or <b>manual</b> in the report. Manual ones are written as deliberately failing stubs so they cannot pass silently.</li>
+        <li>No model is called and no score is computed here. Run <code>promptfoo eval</code> yourself and compare to the exported <code>baseline.json</code>.</li>
+        <li>Agent Builder workflows are not converted. Export those from the Agent Builder UI.</li>
+        <li>Not affiliated with OpenAI or promptfoo.</li>
+      </ul>
+    </section>
+  </main>
+  <footer><p>MIT licensed. Free and open source. <a href="./index.html">Home</a> · <a href="https://github.com/grandlime-labs/openai-exit-kit">GitHub</a>. <span id="build-note"></span></p></footer>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{
+  "name": "openai-exit-kit",
+  "version": "0.1.0",
+  "description": "Move OpenAI Evals and stored prompt objects to promptfoo and plain TypeScript/Python before the 2026-11-30 shutdown. Runs locally; nothing is uploaded.",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "author": "openai-exit-kit contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grandlime-labs/openai-exit-kit.git"
+  },
+  "homepage": "https://grandlime-labs.github.io/openai-exit-kit/",
+  "bugs": {
+    "url": "https://github.com/grandlime-labs/openai-exit-kit/issues"
+  },
+  "bin": {
+    "openai-exit-kit": "dist/cli/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:web": "tsc --noEmit && vite build",
+    "build:cli": "node scripts/build-cli.mjs",
+    "build": "npm run build:web && npm run build:cli",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "verify:promptfoo": "node scripts/verify-promptfoo.mjs",
+    "sample": "node dist/cli/index.js convert fixtures/evals-export --out out/sample && node dist/cli/index.js prompts fixtures/prompts --out out/sample-prompts",
+    "prepack": "npm run build:cli",
+    "fixtures": "node scripts/make-fixtures.mjs",
+    "mock": "node scripts/mock-openai.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "esbuild": "^0.28.2",
+    "fflate": "^0.8.3",
+    "promptfoo": "^0.125.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7",
+    "vitest": "^5.1.0",
+    "yaml": "^2.9.1"
+  },
+  "keywords": [
+    "openai",
+    "evals",
+    "promptfoo",
+    "migration",
+    "prompts"
+  ],
+  "files": [
+    "dist/cli",
+    "README.md",
+    "LICENSE"
+  ]
+}

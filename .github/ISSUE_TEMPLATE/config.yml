@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Notify me about Agent Builder support
+    url: https://github.com/OWNER/openai-exit-kit/discussions
+    about: Use the pinned Discussion to watch for Agent Builder migration support. This tool does not convert Agent Builder workflows yet.
+  - name: Security report
+    url: https://github.com/OWNER/openai-exit-kit/security/advisories/new
+    about: Report a vulnerability privately. Do not file a public issue.

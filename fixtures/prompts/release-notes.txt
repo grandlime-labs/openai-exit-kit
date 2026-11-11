@@ -1,0 +1,3 @@
+Write release notes for version {{version}} in a friendly tone.
+Highlights:
+{{highlights}}
