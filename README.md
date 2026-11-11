@@ -1,3 +1,5 @@
+<p align="center"><img src="assets/logo.png" alt="Grand Lime Labs" width="120"></p>
+
 # OpenAI Exit Kit
 
 Move your OpenAI **Evals** and stored **prompt objects** somewhere you control before OpenAI's shutdown date, **2026-11-30**.
