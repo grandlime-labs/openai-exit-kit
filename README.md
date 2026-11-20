@@ -2,7 +2,7 @@
 
 # OpenAI Exit Kit
 
-Move your OpenAI **Evals** and stored **prompt objects** somewhere you control before OpenAI's shutdown date, **2026-11-30**.
+Move your OpenAI **Evals** and stored **prompt objects** somewhere you control before OpenAI's shutdown date, **Nov 30, 2026**.
 
 - **Evals export → promptfoo.** For each eval you get a `promptfooconfig.yaml`, a `tests.yaml` with your dataset, a prompt file, any Python graders, a `baseline.json` of your old OpenAI results, and a `MIGRATION_REPORT.md`.
 - **Prompt objects → code.** Stored prompts (`v1/prompts`, with versions and variables) become plain TypeScript and Python functions you can keep in git.
@@ -13,7 +13,7 @@ This project is **free and open source** (MIT). There is no paid tier and the to
 
 More free dev tools are coming from GrandLime Labs. Follow [@GrandLimeLabs on X](https://x.com/GrandLimeLabs).
 
-The shutdown dates come from OpenAI's [deprecations page](https://developers.openai.com/api/docs/deprecations), re-checked on 2026-11-19: the Evals dashboard, API, and graders for eval workflows shut down on **Nov 30, 2026**, and `/v1/prompts` and reusable prompt objects shut down on **Nov 30, 2026**. This project is not affiliated with OpenAI or promptfoo.
+The shutdown dates come from OpenAI's [deprecations page](https://developers.openai.com/api/docs/deprecations), re-checked on Nov 19, 2026: the Evals dashboard, API and eval graders, plus `/v1/prompts` and reusable prompt objects, all shut down on **Nov 30, 2026**. This project is not affiliated with OpenAI or promptfoo.
 
 ## What it does not do
 
@@ -107,7 +107,7 @@ Accepted shapes (anything with `messages`, `input`, `instructions`, or `template
 
 Manual graders fail on purpose so a result can never look green because a grader was not migrated. Every mapping and caveat is repeated in the generated `MIGRATION_REPORT.md`.
 
-Model ids that are being shut down are flagged in the reports from a dated table (`src/core/deprecations.ts`, read 2026-11-10). Use `--replace-deprecated` to swap in OpenAI's suggested replacement. Re-check the deprecations page before relying on any of it.
+Model ids that are being shut down are flagged in the reports from a dated table (`src/core/deprecations.ts`, sourced from OpenAI's deprecations page on Nov 10, 2026). `--replace-deprecated` swaps in OpenAI's suggested replacement.
 
 ## Verification that runs without a paid API
 
@@ -138,9 +138,9 @@ Layout: `src/core` (parse, graders, convert, prompts, exporter, deprecations), `
 
 `npm run build:web` writes `dist/web`. That folder is a two-page static site: the **landing page** at `index.html` and the **converter** at `convert.html`. Asset paths are relative, so it works under a sub-path (GitHub project Pages included).
 
-The converter is built with a Content-Security-Policy of `connect-src 'none'` and `form-action 'none'`, so the browser blocks network requests and form posts from that page. The landing page uses the same policy today. The optional email form on the landing page is a disabled placeholder; if you later enable a free form provider, loosen `form-action` on the landing page only (`vite.config.ts` `LANDING_CSP`, and the `/` and `/index.html` rules in `web/public/_headers`). Never change the converter CSP.
+The converter is built with a Content-Security-Policy of `connect-src 'none'` and `form-action 'none'`, so the browser blocks network requests and form posts from that page. The landing page uses the same policy. Never loosen the converter CSP.
 
-The landing page’s “Get notified” section points at GitHub Watch → Releases and a Discussions link. The optional email form stays disabled (no third-party form service). See `APPROVALS.md` for items that still need a separate go-ahead (custom domain, a form provider, launch posts).
+To hear about new releases, watch the repo (Watch → Custom → Releases) or follow the pinned Discussion.
 
 ### GitHub Pages
 
@@ -149,7 +149,7 @@ The site is deployed automatically from `main` by `.github/workflows/pages.yml` 
 - Landing: https://grandlime-labs.github.io/openai-exit-kit/
 - Converter: https://grandlime-labs.github.io/openai-exit-kit/convert.html
 
-To deploy it yourself from a fork: set **Settings > Pages > Source: GitHub Actions**, then push `main` or run the workflow by hand. A custom domain is optional and not configured.
+To deploy it yourself from a fork: set **Settings > Pages > Source: GitHub Actions**, then push `main` or run the workflow by hand.
 
 ### Cloudflare Pages
 
@@ -166,8 +166,6 @@ The CLI is published as the free public package [`openai-exit-kit`](https://www.
 ## Contributing and security
 
 See `CONTRIBUTING.md` and `SECURITY.md`. The changelog starts at `CHANGELOG.md` (`v0.1.1`).
-
-Operator notes for a public launch (not required to use the tool): `APPROVALS.md` is the checklist of actions that still need explicit go-ahead; `DEMAND.md` is how to measure demand in the first 14 days with GitHub and the host only.
 
 ## License
 
