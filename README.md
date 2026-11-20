@@ -13,7 +13,7 @@ This project is **free and open source** (MIT). There is no paid tier and the to
 
 More free dev tools are coming from GrandLime Labs. Follow [@GrandLimeLabs on X](https://x.com/GrandLimeLabs).
 
-The shutdown dates come from OpenAI's [deprecations page](https://developers.openai.com/api/docs/deprecations), re-checked on 2026-11-10: Evals, Agent Builder, and `v1/prompts` are still listed to shut down on **2026-11-30** (existing evals have been read-only since 2026-10-31). Check that page yourself; dates and model tables change. This project is not affiliated with OpenAI or promptfoo.
+The shutdown dates come from OpenAI's [deprecations page](https://developers.openai.com/api/docs/deprecations), re-checked on 2026-11-19: the Evals dashboard, API, and graders for eval workflows shut down on **Nov 30, 2026**, and `/v1/prompts` and reusable prompt objects shut down on **Nov 30, 2026**. This project is not affiliated with OpenAI or promptfoo.
 
 ## What it does not do
 
