@@ -41,7 +41,6 @@ footer { padding-bottom: 40px; color: var(--muted); font-size: .85rem; }
 .btn.large { padding: 12px 18px; font-weight: 600; text-decoration: none; }
 a.btn.secondary { color: var(--accent); }
 .privacy { max-width: 760px; }
-.placeholder-box { border-style: dashed; }
 .notify-steps { padding-left: 1.2em; }
 .notify-steps li { margin: 0.6em 0; }
 .notify-steps div { margin-top: 0.2em; }

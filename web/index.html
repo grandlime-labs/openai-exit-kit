@@ -7,11 +7,6 @@
   <meta name="description" content="Free, open-source converter. Turn an OpenAI Evals export into promptfoo projects and stored prompt objects into TypeScript and Python. Runs fully in your browser; files never leave your machine." />
   <link rel="icon" href="data:," />
   <link rel="stylesheet" href="./style.css" />
-  <!--
-    Placeholders to replace after the GitHub repo exists:
-      grandlime-labs/openai-exit-kit  -> your GitHub user or org and repo name
-    See APPROVALS.md. Do not loosen this page's CSP until an email form is actually enabled.
-  -->
 </head>
 <body>
   <nav class="topnav">
@@ -58,33 +53,6 @@
           <div><a href="https://github.com/grandlime-labs/openai-exit-kit/discussions">Open Discussions</a></div>
         </li>
       </ol>
-    </section>
-
-    <section class="panel placeholder-box" aria-labelledby="email-h">
-      <h2 id="email-h">Optional email form — not enabled</h2>
-      <p>This section is a placeholder. <strong>No email is collected</strong> and the form is not wired to any service. To get updates today, use Watch → Releases or the Discussion above.</p>
-      <p class="muted">Maintainers: to enable a free-tier form later, create an account at Formspree, Tally, or Buttondown (that account requires explicit approval — see <code>APPROVALS.md</code>), paste the form endpoint in the <code>action</code> below, un-hide the form, and loosen <em>only</em> this landing page’s <code>form-action</code> CSP to that provider. Do not change the converter page’s CSP (<code>convert.html</code> must stay <code>connect-src 'none'</code> and <code>form-action 'none'</code>). Require a consent checkbox. Collect nothing without consent.</p>
-      <!--
-        Enable steps (do not do this until approved):
-        1. Create a free Formspree / Tally / Buttondown account.
-        2. Replace FORM_ENDPOINT_PLACEHOLDER with the provider's form action URL.
-        3. Update LANDING_CSP in vite.config.ts and the `/` and `/index.html` rules in web/public/_headers:
-           form-action https://formspree.io   (or your provider origin)
-        4. Remove the `hidden` attribute on the form.
-      -->
-      <form id="email-form" hidden method="post" action="FORM_ENDPOINT_PLACEHOLDER">
-        <p>
-          <label for="email">Email</label><br />
-          <input id="email" type="email" name="email" autocomplete="email" required />
-        </p>
-        <p>
-          <label>
-            <input type="checkbox" name="consent" value="yes" required />
-            I agree to be emailed about OpenAI Exit Kit only. I can unsubscribe at any time.
-          </label>
-        </p>
-        <button type="submit" class="btn">Notify me by email</button>
-      </form>
     </section>
   </main>
 
